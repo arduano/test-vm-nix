@@ -14,22 +14,28 @@
   boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
 
+  # fileSystems."/" =
+  #   {
+  #     device = "rootpool/root";
+  #     fsType = "zfs";
+  #   };
+
+  # fileSystems."/nix" =
+  #   {
+  #     device = "rootpool/nix";
+  #     fsType = "zfs";
+  #   };
+
+  # fileSystems."/home" =
+  #   {
+  #     device = "rootpool/home";
+  #     fsType = "zfs";
+  #   };
+
   fileSystems."/" =
     {
-      device = "rootpool/root";
-      fsType = "zfs";
-    };
-
-  fileSystems."/nix" =
-    {
-      device = "rootpool/nix";
-      fsType = "zfs";
-    };
-
-  fileSystems."/home" =
-    {
-      device = "rootpool/home";
-      fsType = "zfs";
+      device = "/dev/vda1";
+      fsType = "ext4";
     };
 
   swapDevices = [ ];
