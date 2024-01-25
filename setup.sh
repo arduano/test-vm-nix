@@ -20,7 +20,7 @@ sudo mkfs.fat -F 32 -n boot $disk_boot_partition
 zfs_pool="rootpool"
 
 # Make ZFS pool
-sudo zpool create -f $zfs_pool mirror $disk_root_partition
+sudo zpool create -f $zfs_pool $disk_root_partition
 
 # Make ZFS datasets
 zfs_pool_root="$zfs_pool/root" \
