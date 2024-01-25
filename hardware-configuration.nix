@@ -9,7 +9,7 @@
       (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "nvme" "usb_storage" ];
+  boot.initrd.availableKernelModules = [ "nvme" "usb_storage" "ahci" "xhci_pci" "virtio_pci" "sr_mod" "virtio_blk" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
@@ -44,7 +44,7 @@
   # networking.interfaces.end0.useDHCP = lib.mkDefault true;
   # networking.interfaces.wlP4p1s0.useDHCP = lib.mkDefault true;
 
-  boot.kernelParams = [ "console=ttyS0,115200n8" ];
+  boot.kernelParams = [ "console=ttyS0,115200n8" "console=tty1" ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 }

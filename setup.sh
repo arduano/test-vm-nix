@@ -49,7 +49,7 @@ sudo mkdir -p /mnt/home
 sudo mount $disk_root_partition /mnt/home
 
 # Download the flake
-mkdir -p /mnt/etc/nixos
+sudo mkdir -p /mnt/etc/nixos
 sudo curl -o /mnt/etc/nixos/flake.nix https://raw.githubusercontent.com/arduano/test-vm-nix/master/_remote_flake.nix
 
 # Install nixos

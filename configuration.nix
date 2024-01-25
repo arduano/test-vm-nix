@@ -12,8 +12,20 @@
     ];
 
   # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
+  # boot.loader.systemd-boot.enable = true;
+  # boot.loader.efi.canTouchEfiVariables = true;
+
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.grub.enable = true;
+  boot.loader.grub.device = "nodev";
+  boot.loader.grub.useOSProber = true;
+  boot.loader.grub.efiSupport = true;
+
+  boot.loader.grub.extraConfig = ''
+    serial --unit=0 --speed=115200 --word=8 --parity=no --stop=1
+    terminal_input --append serial
+    terminal_output --append serial
+  '';
 
   networking.hostId = "deadbeef"; # Set this to a unique value for each machine.
 
