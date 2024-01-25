@@ -2,7 +2,7 @@
   description = "NixOS base for jetson testing";
 
   inputs = {
-    base.url = "github:spiralblue/jetson-base-flake/master";
+    base.url = "github:arduano/test-vm-nix/master";
   };
 
   outputs = { self, base, ... }@inputs:
