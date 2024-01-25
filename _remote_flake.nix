@@ -1,5 +1,5 @@
 {
-  description = "NixOS base for jetson testing";
+  description = "NixOS base for vm testing";
 
   inputs = {
     base.url = "github:arduano/test-vm-nix/master";

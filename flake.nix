@@ -9,7 +9,7 @@
     with inputs;
     let
       lib = nixpkgs.lib;
-      system = "aarch64-linux";
+      system = "x86_64-linux";
     in
     {
       config = lib.nixosSystem {
