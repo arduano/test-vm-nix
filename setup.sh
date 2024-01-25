@@ -44,10 +44,6 @@ sudo mount -t zfs $zfs_pool_home /mnt/home
 sudo mkdir -p /mnt/boot
 sudo mount $disk_boot_partition /mnt/boot
 
-# Mount data partition
-sudo mkdir -p /mnt/home
-sudo mount $disk_root_partition /mnt/home
-
 # Download the flake
 sudo mkdir -p /mnt/etc/nixos
 sudo curl -o /mnt/etc/nixos/flake.nix https://raw.githubusercontent.com/arduano/test-vm-nix/master/_remote_flake.nix
