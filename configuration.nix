@@ -27,6 +27,12 @@
     terminal_output --append serial
   '';
 
+  systemd.services."serial-getty@ttyS0" = {
+    enable = true;
+    wantedBy = [ "getty.target" ]; # to start at boot
+    serviceConfig.Restart = "always"; # restart when session is closed
+  };
+
   networking.hostId = "deadbeef"; # Set this to a unique value for each machine.
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

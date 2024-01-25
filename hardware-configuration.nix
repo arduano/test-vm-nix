@@ -44,7 +44,7 @@
   # networking.interfaces.end0.useDHCP = lib.mkDefault true;
   # networking.interfaces.wlP4p1s0.useDHCP = lib.mkDefault true;
 
-  boot.kernelParams = [ "console=ttyS0,115200n8" "console=tty1" ];
+  boot.kernelParams = [ "console=ttyS0,115200n8" "console=tty1" "console=tty0" ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 }
