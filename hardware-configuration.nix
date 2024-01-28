@@ -9,9 +9,20 @@
       (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "nvme" "usb_storage" "ahci" "xhci_pci" "virtio_pci" "sr_mod" "virtio_blk" ];
+  boot.initrd.availableKernelModules = [
+    "ahci"
+    "xhci_pci"
+    "sr_mod"
+    "virtio_net"
+    "virtio_pci"
+    "virtio_mmio"
+    "virtio_blk"
+    "virtio_scsi"
+    "9p"
+    "9pnet_virtio"
+  ];
   boot.initrd.kernelModules = [ ];
-  boot.kernelModules = [ ];
+  boot.kernelModules = [ "kvm-amd" "virtio_balloon" "virtio_console" "virtio_rng" ];
   boot.extraModulePackages = [ ];
 
   # fileSystems."/" =
@@ -34,7 +45,7 @@
 
   fileSystems."/" =
     {
-      device = "/dev/vda1";
+      device = "/dev/disk/by-uuid/be7f7995-7f10-4f24-9fa4-dd1b8d5bbd04";
       fsType = "ext4";
     };
 
@@ -49,8 +60,6 @@
   # networking.interfaces.dummy0.useDHCP = lib.mkDefault true;
   # networking.interfaces.end0.useDHCP = lib.mkDefault true;
   # networking.interfaces.wlP4p1s0.useDHCP = lib.mkDefault true;
-
-  boot.kernelParams = [ "console=ttyS0,115200n8" "console=tty1" "console=tty0" ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
 }

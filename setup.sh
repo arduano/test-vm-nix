@@ -8,11 +8,11 @@ disk_root_end_mb=100%
 sudo parted -s /dev/vda mklabel gpt
 
 # Make root
-sudo parted -s /dev/vda mkpart primary ext4 ${disk_root_start_mb}MiB ${disk_root_end_mb}
+sudo parted -s /dev/vda mkpart ext4 ${disk_root_start_mb}MiB ${disk_root_end_mb}
 disk_root_partition=/dev/vda1
 
 # Make boot
-sudo parted -s /dev/vda mkpart primary fat32 ${disk_boot_start_mb}MiB ${disk_boot_end_mb}
+sudo parted -s /dev/vda mkpart fat32 ${disk_boot_start_mb}MiB ${disk_boot_end_mb}
 disk_boot_partition=/dev/vda2
 sudo parted /dev/vda set 2 boot on
 sudo mkfs.fat -F 32 -n boot $disk_boot_partition
