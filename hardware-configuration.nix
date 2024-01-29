@@ -43,6 +43,8 @@
       fsType = "zfs";
     };
 
+  boot.zfs.devNodes = "/dev/disk/by-path";
+
   # fileSystems."/" =
   #   {
   #     device = "/dev/vda1";
