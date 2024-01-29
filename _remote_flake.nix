@@ -7,6 +7,6 @@
 
   outputs = { self, base, ... }@inputs:
     {
-      nixosConfigurations.dev-vm = base.config;
+      nixosConfigurations = base.config;
     };
 }

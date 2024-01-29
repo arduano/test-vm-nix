@@ -12,7 +12,17 @@
       system = "x86_64-linux";
     in
     {
-      config = lib.nixosSystem {
+      config.testvm = lib.nixosSystem {
+        inherit system;
+        specialArgs = {
+          inherit inputs;
+        };
+        modules = [
+          ./configuration.nix
+        ];
+      };
+
+      config.testvm-client = lib.nixosSystem {
         inherit system;
         specialArgs = {
           inherit inputs;
