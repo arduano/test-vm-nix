@@ -25,29 +25,29 @@
   boot.kernelModules = [ "kvm-amd" "virtio_balloon" "virtio_console" "virtio_rng" ];
   boot.extraModulePackages = [ ];
 
-  # fileSystems."/" =
-  #   {
-  #     device = "rootpool/root";
-  #     fsType = "zfs";
-  #   };
-
-  # fileSystems."/nix" =
-  #   {
-  #     device = "rootpool/nix";
-  #     fsType = "zfs";
-  #   };
-
-  # fileSystems."/home" =
-  #   {
-  #     device = "rootpool/home";
-  #     fsType = "zfs";
-  #   };
-
   fileSystems."/" =
     {
-      device = "/dev/vda1";
-      fsType = "ext4";
+      device = "rootpool/root";
+      fsType = "zfs";
     };
+
+  fileSystems."/nix" =
+    {
+      device = "rootpool/nix";
+      fsType = "zfs";
+    };
+
+  fileSystems."/home" =
+    {
+      device = "rootpool/home";
+      fsType = "zfs";
+    };
+
+  # fileSystems."/" =
+  #   {
+  #     device = "/dev/vda1";
+  #     fsType = "ext4";
+  #   };
 
   swapDevices = [ ];
 
