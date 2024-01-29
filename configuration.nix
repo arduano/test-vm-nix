@@ -116,6 +116,8 @@
     pciutils
     ripgrep
 
+    hello
+
     (pkgs.writeShellScriptBin "remote-switch" ''
       sudo nix flake update /etc/nixos && sudo nixos-rebuild switch -L -v --flake /etc/nixos
     '')
