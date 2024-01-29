@@ -19,6 +19,7 @@
         };
         modules = [
           ./configuration.nix
+          ./testvm.nix
         ];
       };
 
@@ -29,6 +30,7 @@
         };
         modules = [
           ./configuration.nix
+          ./testvm-client.nix
         ];
       };
     };
