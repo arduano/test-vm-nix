@@ -20,6 +20,7 @@
     "virtio_scsi"
     "9p"
     "9pnet_virtio"
+    "zfs"
   ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-amd" "virtio_balloon" "virtio_console" "virtio_rng" ];
@@ -43,7 +44,14 @@
       fsType = "zfs";
     };
 
-  boot.zfs.devNodes = "/dev/disk/by-path";
+  fileSystems."/boot" =
+    {
+      device = "/dev/disk/by-label/boot";
+      fsType = "vfat";
+    };
+
+  boot.zfs.devNodes = "/dev/disk/by-label";
+  boot.zfs.forceImportRoot = true;
 
   # fileSystems."/" =
   #   {
