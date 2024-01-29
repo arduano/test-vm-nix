@@ -1,5 +1,7 @@
 # Define space for new EMMC partitions
-disk_root_start_mb=1 \
+disk_boot_start_mb=1 \
+disk_boot_end_mb=512 \
+disk_root_start_mb=$(($disk_boot_end_mb + 1)) \
 disk_root_end_mb=100%
 
 # Make partition table
@@ -8,7 +10,12 @@ sudo parted -s /dev/vda mklabel gpt
 # Make root
 sudo parted -s /dev/vda mkpart ext4 ${disk_root_start_mb}MiB ${disk_root_end_mb}
 disk_root_partition=/dev/vda1
-sudo parted /dev/vda set 1 boot on
+
+# Make boot
+sudo parted -s /dev/vda mkpart fat32 ${disk_boot_start_mb}MiB ${disk_boot_end_mb}
+disk_boot_partition=/dev/vda2
+sudo parted /dev/vda set 2 esp on
+sudo mkfs.fat -F 32 -n boot $disk_boot_partition
 
 # zfs_pool="rootpool"
 
@@ -36,6 +43,10 @@ sudo parted /dev/vda set 1 boot on
 sudo mkfs.ext4 -L root $disk_root_partition
 sudo mkdir /mnt
 sudo mount $disk_root_partition /mnt
+
+# Mount boot partition
+sudo mkdir -p /mnt/boot
+sudo mount $disk_boot_partition /mnt/boot
 
 # Download the flake
 sudo mkdir -p /mnt/etc/nixos
