@@ -120,7 +120,7 @@
     '')
   ];
 
-  users.defaultUserShell = fish;
+  users.defaultUserShell = pkgs.fish;
   programs.fish.enable = true;
 
   # Some programs need SUID wrappers, can be configured further or are
