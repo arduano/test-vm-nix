@@ -5,8 +5,5 @@
     base.url = "github:arduano/test-vm-nix/master";
   };
 
-  outputs = { self, base, ... }@inputs:
-    {
-      nixosConfigurations = base.config;
-    };
+  outputs = { self, base, ... }@inputs: base;
 }
