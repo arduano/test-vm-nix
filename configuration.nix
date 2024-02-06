@@ -139,6 +139,12 @@
     PermitRootLogin = "yes";
   };
 
+  services.nginx.enable = true;
+  services.nginx.virtualHosts."myhost.org" = {
+    addSSL = true;
+    root = "/var/www/myhost.org";
+  };
+
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
