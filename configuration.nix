@@ -141,7 +141,6 @@
 
   services.nginx.enable = true;
   services.nginx.virtualHosts."myhost.org" = {
-    addSSL = true;
     root = "/var/www/myhost.org";
   };
 
