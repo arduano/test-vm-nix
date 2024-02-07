@@ -9,6 +9,7 @@
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./automatic1111.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
