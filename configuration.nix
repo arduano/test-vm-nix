@@ -116,7 +116,7 @@
     ripgrep
 
     python311Full
-    python311Packages.opencv4
+    # python311Packages.opencv4
 
     (pkgs.writeShellScriptBin "remote-switch" ''
       sudo nix flake update /etc/nixos && sudo nixos-rebuild switch -L -v --flake /etc/nixos
