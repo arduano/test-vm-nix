@@ -4,8 +4,8 @@ let
   src = pkgs.fetchFromGitHub {
     owner = "AUTOMATIC1111";
     repo = "stable-diffusion-webui";
-    rev = "v1.6.0";
-    sha256 = "sha256-V16VkOq0+wea4zbfeKBLAQBth022ZkpG8lh0p9u4txs=";
+    rev = "v1.7.0";
+    sha256 = "sha256-xOId/D5eJszmRn0tCZtS+/u5WQUBpdPQ0I5XZIv3FvE=";
   };
 
   automatic1111 = (pkgs.buildFHSEnv rec {
