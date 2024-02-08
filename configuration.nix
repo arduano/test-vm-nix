@@ -9,7 +9,7 @@
     [
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./automatic1111.nix
+      # ./automatic1111.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -115,6 +115,8 @@
     ncdu
     pciutils
     ripgrep
+
+    hello
 
     python311Full
     # python311Packages.opencv4
